@@ -80,13 +80,6 @@ img{display:block;max-width:100%}
 [data-pal="multi"] .spec:nth-child(2){--sc:var(--c4)}
 [data-pal="multi"] .spec:nth-child(3){--sc:var(--c3)}
 [data-pal="multi"] .spec:nth-child(4){--sc:var(--c2)}
-[data-pal="multi"] .w:nth-child(1) .plate{background:var(--c5)}
-[data-pal="multi"] .w:nth-child(2) .plate{background:var(--c3)}
-[data-pal="multi"] .w:nth-child(3) .plate{background:var(--c2)}
-[data-pal="multi"] .w:nth-child(4) .plate{background:var(--c1)}
-[data-pal="multi"] .w:nth-child(5) .plate{background:var(--c6)}
-[data-pal="multi"] .w:nth-child(6) .plate{background:var(--c4)}
-[data-pal="multi"] .w .plate .lbl{color:#000}
 [data-pal="multi"] .drow .n{display:inline-block;justify-self:start;color:#000;font-weight:700;padding:4px 9px;border-radius:999px}
 [data-pal="multi"] .drow:nth-child(1) .n{background:var(--c2)}
 [data-pal="multi"] .drow:nth-child(2) .n{background:var(--c5)}
@@ -499,7 +492,7 @@ footer li a:hover{text-decoration:underline;text-underline-offset:4px}
   <p class="fine">By participating in Let's Build! 2026, you agree to Audiotool's Terms &amp; Conditions, Privacy Policy and Code of Conduct linked above. &copy; 2026 audiotool.com</p>
 </div></footer>
 
-<div class="ver">v2.1</div>
+<div class="ver">v2.2</div>
 <script>document.getElementById("play").addEventListener("click",function(){var f=document.createElement("iframe");f.src="https://www.youtube-nocookie.com/embed/RrfhTg9FHBQ?autoplay=1&rel=0";f.title="What is Let's Build?";f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;this.replaceWith(f)});
 document.getElementById("pal").addEventListener("click",function(){var r=document.documentElement,q=r.getAttribute("data-pal")==="multi"?"green":"multi";r.setAttribute("data-pal",q);try{localStorage.setItem("lb-pal",q)}catch(e){}});
 document.getElementById("tog").addEventListener("click",function(){var r=document.documentElement,t=r.getAttribute("data-theme")==="light"?"dark":"light";r.setAttribute("data-theme",t);try{localStorage.setItem("lb-theme",t)}catch(e){}});</script>
