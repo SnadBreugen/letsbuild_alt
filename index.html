@@ -93,7 +93,7 @@ img{display:block;max-width:100%}
 [data-pal="multi"] .drow:nth-child(3) .n{background:var(--c3)}
 [data-pal="multi"] .drow:nth-child(4) .n{background:var(--c4)}
 [data-pal="multi"] .role h3::before{content:"";display:inline-block;width:14px;height:14px;margin-right:12px;vertical-align:1px;background:var(--rc)}
-[data-pal="multi"] .role:nth-child(1){--rc:var(--c5)}
+[data-pal="multi"] .role:nth-child(1){--rc:var(--c1)}
 [data-pal="multi"] .role:nth-child(2){--rc:var(--c2)}
 [data-pal="multi"] .role:nth-child(3){--rc:var(--c3)}
 [data-pal="multi"] .role:nth-child(4){--rc:var(--c6)}
@@ -105,6 +105,33 @@ img{display:block;max-width:100%}
 [data-pal="multi"] .keep a:nth-child(1){--kc:var(--c2)}
 [data-pal="multi"] .keep a:nth-child(2){--kc:var(--c6)}
 [data-pal="multi"] .keep a:nth-child(3){--kc:var(--c5)}
+
+/* multi: big color fields. Inside a field everything turns black on color */
+[data-pal="multi"] #directions,[data-pal="multi"] #join,[data-pal="multi"] #faq,[data-pal="multi"] .final,[data-pal="multi"] .spec{
+  --ink:#000;--ink2:#111;--ink3:#2b2b2b;--rule:rgba(0,0,0,.22);--rule2:#000;--acc:#000;
+  background:var(--f);--bg:var(--f);--on-acc:var(--f);color:#000;border-color:rgba(0,0,0,.22)}
+[data-pal="multi"] #directions{--f:var(--c2)}
+[data-pal="multi"] #join{--f:var(--c5)}
+[data-pal="multi"] #faq{--f:var(--c6)}
+[data-pal="multi"] .final{--f:var(--c4)}
+[data-pal="multi"] .spec{box-shadow:none;padding-left:20px !important}
+[data-pal="multi"] .spec:nth-child(1){--f:var(--c1)}
+[data-pal="multi"] .spec:nth-child(2){--f:var(--c4)}
+[data-pal="multi"] .spec:nth-child(3){--f:var(--c3)}
+[data-pal="multi"] .spec:nth-child(4){--f:var(--c2)}
+[data-pal="multi"] .specs{border-top:0;gap:0}
+[data-pal="multi"] #directions .drow .n{background:#000 !important;color:var(--c2)}
+[data-pal="multi"] #join .role h3::before{border:1px solid #000}
+[data-pal="multi"] #join .rph{border:1px solid #000}
+[data-pal="multi"] .keep a{box-shadow:none}
+[data-pal="multi"] .j:nth-child(6n+1) .t{background:var(--c1)}
+[data-pal="multi"] .j:nth-child(6n+2) .t{background:var(--c3)}
+[data-pal="multi"] .j:nth-child(6n+3) .t{background:var(--c5)}
+[data-pal="multi"] .j:nth-child(6n+4) .t{background:var(--c2)}
+[data-pal="multi"] .j:nth-child(6n+5) .t{background:var(--c4)}
+[data-pal="multi"] .j:nth-child(6n) .t{background:var(--c6)}
+[data-pal="multi"] .j .t,[data-pal="multi"] .j .t .org,[data-pal="multi"] .j .t .ro{color:#000}
+[data-pal="multi"] .j.fill{background:var(--bg)}
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;font-weight:600;padding:14px 22px;border-radius:999px;border:1px solid var(--ink);color:var(--ink);white-space:nowrap}
 .btn:hover{background:var(--ink);color:var(--bg)}
@@ -203,7 +230,8 @@ section{border-bottom:1px solid var(--rule)}
 
 /* jury */
 .jgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
-.j{background:var(--bg)}
+.j{background:var(--bg);display:flex;flex-direction:column}
+.j .t{flex:1}
 .j.fill{display:block}
 .j .ph{aspect-ratio:3/4;background:var(--plate);overflow:hidden}
 .j .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:grayscale(1) contrast(1.05)}
@@ -412,7 +440,7 @@ footer li a:hover{text-decoration:underline;text-underline-offset:4px}
   <p class="note">When you submit your app, our panel of judges evaluates which categories it fits and tags it accordingly. A single project can qualify and win in multiple categories.</p>
 </div></section>
 
-<section><div class="wrap sec">
+<section id="join"><div class="wrap sec">
   <div class="head"><div class="lbl">Who should join</div><div><h2>No gatekeeping</h2><p>Every background is welcome, and the best teams mix them.</p></div></div>
   <div class="rwrap"><figure class="rph"><img src="images/letsbuild-repo/images/portrait-c.webp" alt="A participant building at his laptop"></figure><div class="roles"><div class="role"><h3>Musicians &amp; Producers</h3><p>AI coding turns ideas into apps quickly. Alongside developers and AI models, your vision becomes reality. No prior coding required.</p></div><div class="role"><h3>Developers</h3><p>Go from prototype to production-ready with AI-assisted coding. Work with musicians who bring domain expertise, and build apps creators want.</p></div><div class="role"><h3>Students</h3><p>Learn by building. Explore music tech, work in teams, and add a real project to your portfolio, with free platform access and support from the Audiotool team.</p></div><div class="role"><h3>Designers</h3><p>Shape how people experience music apps. Interfaces, branding, and interaction design are key to every winning project.</p></div><div class="role"><h3>Music enthusiasts, creatives &amp; builders</h3><p>Into production, gaming, or just love music? If you like to create and tinker, the Series is for you. Bring your curiosity and build something new.</p></div></div></div>
   <div class="after"><a class="btn acc" href="https://forms.gle/qtUBAkcxju2CRw549">Get notified for Round 2</a></div>
@@ -487,7 +515,7 @@ footer li a:hover{text-decoration:underline;text-underline-offset:4px}
   <p class="fine">By participating in Let's Build! 2026, you agree to Audiotool's Terms &amp; Conditions, Privacy Policy and Code of Conduct linked above. &copy; 2026 audiotool.com</p>
 </div></footer>
 
-<div class="ver">v1.8</div>
+<div class="ver">v1.9</div>
 <script>document.getElementById("play").addEventListener("click",function(){var f=document.createElement("iframe");f.src="https://www.youtube-nocookie.com/embed/RrfhTg9FHBQ?autoplay=1&rel=0";f.title="What is Let's Build?";f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;this.replaceWith(f)});
 document.getElementById("pal").addEventListener("click",function(){var r=document.documentElement,q=r.getAttribute("data-pal")==="multi"?"green":"multi";r.setAttribute("data-pal",q);try{localStorage.setItem("lb-pal",q)}catch(e){}});
 document.getElementById("tog").addEventListener("click",function(){var r=document.documentElement,t=r.getAttribute("data-theme")==="light"?"dark":"light";r.setAttribute("data-theme",t);try{localStorage.setItem("lb-theme",t)}catch(e){}});</script>
