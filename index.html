@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;600;700&family=Archivo:wght@400;700&display=swap" rel="stylesheet">
-<script>(function(){var t;try{t=localStorage.getItem("lb-theme")}catch(e){}if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}document.documentElement.setAttribute("data-theme",t)})();</script>
+<script>(function(){var t;try{t=localStorage.getItem("lb-theme")}catch(e){}if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}document.documentElement.setAttribute("data-theme",t);var q;try{q=localStorage.getItem("lb-pal")}catch(e){}document.documentElement.setAttribute("data-pal",q==="multi"?"multi":"green")})();</script>
 <style>
 @font-face{font-family:"ES Build";font-weight:700;src:local("ES Build Bold"),local("ESBuild-Bold"),url("fonts/ES-Build-Bold_1.otf") format("opentype");font-display:swap}
 @font-face{font-family:"ES Build";font-weight:400;src:local("ES Build Regular"),local("ESBuild-Regular"),url("fonts/ES-Build-Regular_1.otf") format("opentype");font-display:swap}
@@ -68,7 +68,43 @@ img{display:block;max-width:100%}
 /* theme toggle */
 .tog{display:inline-flex;border:1px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);font-family:var(--mono);font-size:12px;font-weight:600;cursor:pointer;padding:2px;gap:2px}
 .tog span{padding:5px 10px;border-radius:999px}
-[data-theme="dark"] .tog .td,[data-theme="light"] .tog .tl{background:var(--ink);color:var(--bg)}
+[data-theme="dark"] .tog .td,[data-theme="light"] .tog .tl,[data-pal="green"] .tog .pg,[data-pal="multi"] .tog .pm{background:var(--ink);color:var(--bg)}
+[data-pal="multi"] .tog .pm{background:linear-gradient(90deg,#7df9c4,#0ec5ff,#a68cff,#ff7ab6,#ff6a2b,#ffd23f);color:#000}
+.top .tog+.tog{margin-left:-14px}
+
+/* multicolor palette: flat fills only, always with black text */
+[data-pal="multi"]{--c1:#7df9c4;--c2:#0ec5ff;--c3:#ffd23f;--c4:#ff6a2b;--c5:#ff7ab6;--c6:#a68cff}
+[data-pal="multi"] .round .tag{background:var(--c4)}
+[data-pal="multi"] .spec{box-shadow:inset 0 4px 0 var(--sc)}
+[data-pal="multi"] .spec:nth-child(1){--sc:var(--c1)}
+[data-pal="multi"] .spec:nth-child(2){--sc:var(--c4)}
+[data-pal="multi"] .spec:nth-child(3){--sc:var(--c3)}
+[data-pal="multi"] .spec:nth-child(4){--sc:var(--c2)}
+[data-pal="multi"] .w:nth-child(1) .plate{background:var(--c5)}
+[data-pal="multi"] .w:nth-child(2) .plate{background:var(--c3)}
+[data-pal="multi"] .w:nth-child(3) .plate{background:var(--c2)}
+[data-pal="multi"] .w:nth-child(4) .plate{background:var(--c1)}
+[data-pal="multi"] .w:nth-child(5) .plate{background:var(--c6)}
+[data-pal="multi"] .w:nth-child(6) .plate{background:var(--c4)}
+[data-pal="multi"] .w .plate .lbl{color:#000}
+[data-pal="multi"] .drow .n{display:inline-block;justify-self:start;color:#000;font-weight:700;padding:4px 9px;border-radius:999px}
+[data-pal="multi"] .drow:nth-child(1) .n{background:var(--c2)}
+[data-pal="multi"] .drow:nth-child(2) .n{background:var(--c5)}
+[data-pal="multi"] .drow:nth-child(3) .n{background:var(--c3)}
+[data-pal="multi"] .drow:nth-child(4) .n{background:var(--c4)}
+[data-pal="multi"] .role h3::before{content:"";display:inline-block;width:14px;height:14px;margin-right:12px;vertical-align:1px;background:var(--rc)}
+[data-pal="multi"] .role:nth-child(1){--rc:var(--c5)}
+[data-pal="multi"] .role:nth-child(2){--rc:var(--c2)}
+[data-pal="multi"] .role:nth-child(3){--rc:var(--c3)}
+[data-pal="multi"] .role:nth-child(4){--rc:var(--c6)}
+[data-pal="multi"] .role:nth-child(5){--rc:var(--c4)}
+[data-pal="multi"] .play .pb{background:var(--c5)}
+[data-pal="multi"] .band{--acc:var(--c3);background:var(--c3)}
+[data-pal="multi"] .band .btn:hover{color:var(--c3)}
+[data-pal="multi"] .keep a{box-shadow:inset 0 4px 0 var(--kc)}
+[data-pal="multi"] .keep a:nth-child(1){--kc:var(--c2)}
+[data-pal="multi"] .keep a:nth-child(2){--kc:var(--c6)}
+[data-pal="multi"] .keep a:nth-child(3){--kc:var(--c5)}
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;font-weight:600;padding:14px 22px;border-radius:999px;border:1px solid var(--ink);color:var(--ink);white-space:nowrap}
 .btn:hover{background:var(--ink);color:var(--bg)}
@@ -224,7 +260,8 @@ footer li a:hover{text-decoration:underline;text-underline-offset:4px}
 
 @media (max-width:1100px){
   .top nav{display:none}
-  .top .tog{margin-left:auto}
+  .top #pal{margin-left:auto}
+  .top .tog+.tog{margin-left:0}
   .jgrid{grid-template-columns:repeat(4,1fr)}
   .pgrid.i{grid-template-columns:repeat(4,1fr)}
 }
@@ -291,6 +328,7 @@ footer li a:hover{text-decoration:underline;text-underline-offset:4px}
     <a href="https://www.audiotool.com/LetsBuild/for-schools">Educators</a>
     <a href="https://www.audiotool.com/discord">Discord</a>
   </nav>
+  <button class="tog" id="pal" type="button" aria-label="Switch between green and multicolor"><span class="pg">Green</span><span class="pm">Multi</span></button>
   <button class="tog" id="tog" type="button" aria-label="Switch light or dark mode"><span class="tl">Light</span><span class="td">Dark</span></button>
   <a class="btn sm acc" href="https://forms.gle/qtUBAkcxju2CRw549">Get notified</a>
 </div></header>
@@ -449,8 +487,9 @@ footer li a:hover{text-decoration:underline;text-underline-offset:4px}
   <p class="fine">By participating in Let's Build! 2026, you agree to Audiotool's Terms &amp; Conditions, Privacy Policy and Code of Conduct linked above. &copy; 2026 audiotool.com</p>
 </div></footer>
 
-<div class="ver">v1.7</div>
+<div class="ver">v1.8</div>
 <script>document.getElementById("play").addEventListener("click",function(){var f=document.createElement("iframe");f.src="https://www.youtube-nocookie.com/embed/RrfhTg9FHBQ?autoplay=1&rel=0";f.title="What is Let's Build?";f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;this.replaceWith(f)});
+document.getElementById("pal").addEventListener("click",function(){var r=document.documentElement,q=r.getAttribute("data-pal")==="multi"?"green":"multi";r.setAttribute("data-pal",q);try{localStorage.setItem("lb-pal",q)}catch(e){}});
 document.getElementById("tog").addEventListener("click",function(){var r=document.documentElement,t=r.getAttribute("data-theme")==="light"?"dark":"light";r.setAttribute("data-theme",t);try{localStorage.setItem("lb-theme",t)}catch(e){}});</script>
 </body>
 </html>
